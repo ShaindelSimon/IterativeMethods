@@ -1,4 +1,5 @@
 #Shain Simon
+#Sira Chaim
 import numpy as np
 from numpy.linalg import inv, norm
 
