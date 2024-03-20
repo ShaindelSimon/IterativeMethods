@@ -13,7 +13,6 @@ def check_diag(mat):
 
 def iterative_method(G, H, b):
     e = 0.001
-
     X = np.matrix(np.zeros((len(G), 1)))
 
     while True:
@@ -33,11 +32,13 @@ def DLU(mat):
     U = np.triu(mat, 1)
     return D, L, U
 def Jacobi(mat, b):
+    check_diag(mat)
     D, L, U = DLU(mat)
     H = inv(D)
     G = -H * (L+U)
     return iterative_method(G, H, b)
 def Gauss_Z(mat, b):
+    check_diag(mat)
     D, L, U = DLU(mat)
     H = inv(L+D)
     G = -H * U
@@ -46,13 +47,13 @@ def Gauss_Z(mat, b):
 
 def main():
     mat = np.matrix([
-        [ 4,  2,  0],
-        [ 2, 10,  4],
-        [ 0,  4,  5]
+        [ 5,  1,  0],
+        [ 0, -5,  -2],
+        [ 1,  1,  -3]
     ])
-    b = np.matrix([[2], [6], [5]])
+    b = np.matrix([[4], [6], [9]])
     print(Jacobi(mat, b))
-    print(Gauss_Z(mat, b))
+    #print(Gauss_Z(mat, b))
 
 
 main()
