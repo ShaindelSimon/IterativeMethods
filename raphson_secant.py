@@ -1,3 +1,4 @@
+
 import sympy as sp
 from sympy.utilities.lambdify import lambdify
 
@@ -32,8 +33,10 @@ def Secant(f, n1, n2, e=0.0001):
 
 
 if __name__ == "__main__":
+    # Newton-Raphson
     X = sp.symbols("x")
     f = X**2-5*X+2
-
     print(Raphson(X, f, 0, 8))
+
+    # Secant
     print(Secant(lambda X: X ** 2 - 5 * X + 2, -10, 5))

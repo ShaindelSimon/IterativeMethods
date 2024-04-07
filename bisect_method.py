@@ -38,13 +38,6 @@ def bisection_method(f, a, b, tol=1e-6):
 
 
 if __name__ == '__main__':
-    b = 3.75806452
-    c = 0.91935484
-    d = 5.5
-    e = 6
-    f = lambda x: (b*x**2 +c*x**3 -d) / (c*x**2 -e)
-    roots = bisection_method(f, 0, 3, 0.0001)
+    f = lambda x: x**3 + 5
+    roots = bisection_method(f, -5, 5, 0.0001)
     print(bcolors.OKBLUE, f"\nThe equation f(x) has an approximate root at x = {roots}",bcolors.ENDC,)
-
-    # root_using_simple = simple_iterative(f, 0.1, 0.01, 10)
-    # print(bcolors.OKBLUE, f"\nThe equation f(x) has an approximate root using simple iterative at x = {simple_iterative()}",bcolors.ENDC,)

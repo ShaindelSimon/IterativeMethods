@@ -31,22 +31,8 @@ if __name__ == "__main__":
     d = 4
     e = 5
 
-    def func1(x):
+    def f(x):
         return (b*x**2 -e*x + b) / (d * x)
 
-    def func2(x):
-        return (b*x**2 +c*x**3 -d) / (c*x**2 -e)
-
     # Find all roots within the range from 0 to 3
-    # f is not defined for zero
-    roots = find_roots(func1, 0.00001, 3)
-    print("\nFinal Roots 1:")
-    for root in roots:
-        print(root)
-
-    print("\n")
-
-    roots = find_roots(func2, 0, 3)
-    print("\nFinal Roots 2:")
-    for root in roots:
-        print(root)
+    print(find_roots(f, 0.00001, 3))

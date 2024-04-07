@@ -9,22 +9,22 @@ def check_diag(mat):
         sum_row = np.sum(abs_row)
         abs_diag = np.abs(mat[i, i])
         if sum_row - abs_diag > abs_diag:
-            raise Exception("this is not dominant diagonal matrix")
+            print("this is not dominant diagonal matrix")
 
 def iterative_method(G, H, b):
     e = 0.001
     X = np.matrix(np.zeros((len(G), 1)))
 
-    while True:
+    for i in range(100):
         next_X = G * X + H * b
         delta = norm(next_X-X, np.inf)
 
         if delta < e:
-            break
+            return X
 
         X = next_X
 
-    return X
+    raise Exception("Doesn't converge")
 
 def DLU(mat):
     D = np.matrix(np.diag(np.diag(mat)))
@@ -50,15 +50,15 @@ def Gauss_Z(mat, b):
 
 def main():
     mat = np.matrix([
-        [ 2,  3,  4, 5, 6],
-        [ -5, 3,  4, -2, 3],
-        [ 4,  -5,  -2, 2, 6],
-        [4, 5, -1, -2, -3],
-        [5, 5, 3, -3, 5]
+        [ 200,  3,  4, 5, 6],
+        [ -5, 300,  4, -2, 3],
+        [ 4,  -5,  -200, 2, 6],
+        [4, 5, -1, -200, -3],
+        [5, 5, 3, -3, 500]
     ])
     b = np.matrix([[70], [20], [26], [-12], [37]])
-    print(Jacobi(mat, b))
-    #print(Gauss_Z(mat, b))
+    #print(Jacobi(mat, b))
+    print(Gauss_Z(mat, b))
 
 
 main()
